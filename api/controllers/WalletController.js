@@ -1,6 +1,7 @@
 //metodos controladores CRUD
 
 const database = require('../models')
+const coins  = database.coins
 
 class WalletController {
   //metodo para criar uma carteira
@@ -17,8 +18,12 @@ class WalletController {
   //metodo para pegar todas as carteiras do banco
   static async getAllWallets(req, res) {
     try {
-      const allWallets = await database.wallet.findAll()
+      const allWallets = await database.wallet.findAll({
+        include: coins
+      })
+
       return res.status(200).json(allWallets)
+      
     } catch (error) {
       return res.status(500).json(error.message)
     }
