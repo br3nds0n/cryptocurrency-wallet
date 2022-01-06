@@ -26,8 +26,8 @@ class WalletController {
 
   //metodo para pegar uma carteira do banco
   static async getOneWallet(req, res) {
+    const { address } = req.params
     try {
-      const { address } = req.params
       const oneWallet = await database.wallet.findOne({
         where: { address: Number(address) }
       })
@@ -57,6 +57,17 @@ class WalletController {
   }
 
   //metodo para deletar uma carteira
+  static async deleteWallet(req, res) {
+    const { address } = req.params
+    try {
+      await database.wallet.destroy({
+        where: { address: Number(address) }
+      })
+      return res.status(200).json({ mensagem: `carteira deletada de address '${address}'` })
+    } catch (error) {
+      return res.status(404).json(error.message)
+    }
+  }
 }
 
 module.exports = WalletController

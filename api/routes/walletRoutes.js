@@ -10,5 +10,6 @@ router
  .get('/wallet', WalletController.getAllWallets)
  .get('/wallet/:address', WalletController.getOneWallet)
  .put('/wallet/:address', WalletController.updateOneWallet)
+ .delete('/wallet/:address', WalletController.deleteWallet)
 
 module.exports = router
