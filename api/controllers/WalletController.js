@@ -9,7 +9,6 @@ class WalletController {
     try {
       const newWalletCreated = await database.wallet.create(newWallet)
       return res.status(201).json(newWalletCreated)
-
     } catch (error) {
       return res.status(500).json(error.message)
     }
@@ -39,10 +38,23 @@ class WalletController {
   }
 
   //metodo para atualiza uma carteira
-  static async updateOneWallet(req,res) {
-    
-  }
+  static async updateOneWallet(req, res) {
+    const newInfo = req.body
+    const { address } = req.params
+    try {
+      await database.wallet.update(newInfo, {
+        where: { address: Number(address) }
+      })
 
+      const updatedWallet = await database.wallet.findOne({
+        where: { address: Number(address) }
+      })
+
+      return res.status(200).json(updatedWallet)
+    } catch (error) {
+      return res.status(404).json(error.message)
+    }
+  }
 
   //metodo para deletar uma carteira
 }
