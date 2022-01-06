@@ -1,0 +1,30 @@
+{
+  "name": "cryptocurrency-wallet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/br3nds0n/cryptocurrency-wallet.git"
+  },
+  "author": "brendson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/br3nds0n/cryptocurrency-wallet/issues"
+  },
+  "homepage": "https://github.com/br3nds0n/cryptocurrency-wallet#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "path": "^0.12.7",
+    "sequelize": "^6.12.5",
+    "sequelize-cli": "^6.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
