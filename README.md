@@ -86,11 +86,15 @@ $ show database;
 # Saia do terminal MySQL
 $ ^C
 
-# Execute os migrates
-$ npx sequelize-cli db:migrate
 ```
 
 ### 📂 Criando as Tabelas (database)
+
+```bash
+# Execute os migrates
+$ npx sequelize-cli db:migrate
+
+```
 
 <br>
 
