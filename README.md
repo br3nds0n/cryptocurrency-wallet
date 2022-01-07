@@ -94,6 +94,27 @@ $ ^C
 # Execute os migrates
 $ npx sequelize-cli db:migrate
 
+# Popule as tabelas
+$ npx sequelixe-cli db:seed:all
+
+```
+### ✅ Confirmando as Tabelas (database)
+```bash
+# Acesse o MySQL
+$ mysql -h <host> -u root -p
+
+# Liste os bancos
+$ show database;
+
+# Acesse o banco
+$ use <nome-do-banco>;
+
+# Liste as tabelas
+$ show tables;
+```
+> Se seguiu os passos acima corretamente terá esse retorno<br> no terminal:
+```
+
 ```
 
 <br>
