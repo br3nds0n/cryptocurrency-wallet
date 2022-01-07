@@ -115,11 +115,19 @@ $ use <nome-do-banco>;
 
 # Liste as tabelas
 $ show tables;
-```
-> Se seguiu os passos acima corretamente terá esse retorno<br> no terminal:
+
+# Se seguiu os passos acima corretamente terá esse retorno no terminal:
+
++--------------------+
+| Tables_in_carteira |
++--------------------+
+| coins              |
+| sequelizemeta      |
+| transactions       |
+| wallets            |
++--------------------+
 ```
 
-```
 
 <br>
 
