@@ -8,8 +8,8 @@
 
 Bem-vindo(a). Este é o desafio da 3° sprint!
 
-Opa tudo bem?! Meu nome é Brendson, e mais uma vez venho através desse repositório entregar o 2° desafio do programa de bolsas.
-O desafio que foi contruído com o conteúdo aprendido nessa 3° Sprint. Colocado o conhecimento adquirido 
+Opa dev tudo bem?! Meu nome é Brendson, e mais uma vez venho através desse repositório entregar o 2° desafio do programa de bolsas.
+O desafio que foi contruído com o conteúdo aprendido na 3° Sprint. Colocado o conhecimento adquirido 
 em prática no desenvolvimento dessa api.
 
 Vamos ao projeto! <code>#dreambigger🚀🧡</code>
