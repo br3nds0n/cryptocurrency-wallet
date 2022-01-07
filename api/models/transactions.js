@@ -2,26 +2,25 @@
 const {
   Model
 } = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
-  class coins extends Model {
+  class transactions extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      coins.hasMany(models.transactions)
-      coins.belongsTo(models.wallet)
+      transactions.belongsTo(models.coins)
+      transactions.belongsTo(models.wallet)
     }
   };
-  coins.init({
-    coin: DataTypes.ENUM('BTC','ETH','BRL','USD'),
-    fullname: DataTypes.STRING,
-    amont: DataTypes.FLOAT
+  transactions.init({
+    value: DataTypes.FLOAT,
+    datetime: DataTypes.DATE,
+    currentCotation: DataTypes.FLOAT
   }, {
     sequelize,
-    modelName: 'coins',
+    modelName: 'transactions',
   });
-  return coins;
+  return transactions;
 };
