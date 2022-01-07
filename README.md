@@ -4,7 +4,7 @@
 
 <img align="right" src="https://img.shields.io/static/v1?label=project&message=Compass&color=FFA429&style=for-the-badge&logo=ghost"/>
 
-# 🚀 Nodejs compass challenge
+# 💰 cryptocurrency wallet
 
 Bem-vindo(a). Este é o desafio da 3° sprint!
 
@@ -23,7 +23,6 @@ Vamos ao projeto! <code>#dreambigger🚀🧡</code>
  ---
  
  ## 🧠 Contexto
- 
 
 
 ---
