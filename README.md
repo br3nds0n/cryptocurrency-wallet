@@ -23,7 +23,12 @@ Vamos ao projeto! <code>#dreambigger🚀🧡</code>
  ---
  
  ## 🧠 Contexto
+No segundo desafio do programa de bolsas, será a criação de uma carteira de cripto moedas. Neste projeto estou incluído relacionamento de tabelas e transações das cripto moedas, onde implemento os fluxos de:
 
+ * Interação de métodos http. (Criar, buscar, editar e remover);
+ * Relacionamento de tabelas e transações;
+ * validação dos campos;
+ 
 
 ---
 
