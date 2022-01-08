@@ -13,7 +13,6 @@ class WalletController {
     try {
       const newWalletCreated = await database.wallet.create(newWallet)
       return res.status(201).json(newWalletCreated)
-
     } catch (error) {
       return res.status(500).json(error.message)
     }
@@ -21,31 +20,40 @@ class WalletController {
 
   //metodo para pegar todas as carteiras do banco
   static async getAllWallets(req, res) {
-    const { coin, name, cpf, birthdate, amount} = req.query
+    const { coin, name, cpf, birthdate, amount } = req.query
     const where = {}
-    name ? where.name = {} : null
-    name ? where.name[Op.eq] = name : null
+    name ? (where.name = {}) : null
+    name ? (where.name[Op.eq] = name) : null
 
-    cpf ? where.cpf = {} : null
-    cpf ? where.cpf[Op.eq] = cpf : null
+    cpf ? (where.cpf = {}) : null
+    cpf ? (where.cpf[Op.eq] = cpf) : null
 
-    birthdate ? where.birthdate = {} : null
-    birthdate ? where.birthdate[Op.eq] = birthdate : null
- 
-
+    birthdate ? (where.birthdate = {}) : null
+    birthdate ? (where.birthdate[Op.eq] = birthdate) : null
+    
+  
     try {
       const allWallets = await database.wallet.findAll({
-        where, 
-        include: [
+        where,
+        include:[
           {
             model: coins,
-            required: true
-          },
-          {
-            model: transactions,
-            required: true
+            attributes: ['coin', 'fullname', 'amont'],
+            required: true,
+            include: {
+              model: transactions,
+              required: true,
+              attributes: ['value', 'datetime', 'currentCotation']
+            }
           }
-          
+        ],
+        attributes: [
+          'address',
+          'name',
+          'cpf',
+          'birthdate',
+          'createdAt',
+          'updatedAt'
         ]
       })
 
@@ -64,13 +72,22 @@ class WalletController {
         include: [
           {
             model: coins,
-            required: true
-          },
-          {
-            model: transactions,
-            required: true
+            attributes: ['coin', 'fullname', 'amont'],
+            required: true,
+            include: {
+              model: transactions,
+              required: true,
+              attributes: ['value', 'datetime', 'currentCotation']
+            }
           }
-          
+        ],
+        attributes: [
+          'address',
+          'name',
+          'cpf',
+          'birthdate',
+          'createdAt',
+          'updatedAt'
         ]
       })
       return res.status(200).json(oneWallet)
