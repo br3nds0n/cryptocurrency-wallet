@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       birthdate: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         validate: {
           notEmpty: {
             msg: "Campo 'birthdate' não pode ser vazio "

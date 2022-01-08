@@ -10,4 +10,6 @@ routes(app)
 
 app.listen(port, () => console.log(`api funcionando na porta '${port}'`))
 
+
+
 module.exports = app
