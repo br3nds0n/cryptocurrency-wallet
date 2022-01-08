@@ -13,6 +13,15 @@ module.exports = {
           walletAddress: 1,
           createdAt: new Date(),
           updatedAt: new Date()
+        },
+        {
+          value: 0.0123110 ,
+          datetime: '2003-04-23',
+          currentCotation: 0.0123,
+          coinId: 2,
+          walletAddress: 2,
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ],
       {}
