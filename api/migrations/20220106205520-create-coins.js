@@ -22,6 +22,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: 'wallets', key: 'address' }
       },
+      carteiraId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'carteiras', key: 'id' }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

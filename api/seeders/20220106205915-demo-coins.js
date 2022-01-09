@@ -10,13 +10,15 @@ module.exports = {
           fullname: "Etherium",
           amont: 0.10003,
           walletAddress: 1,
+          carteiraId: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
-          coin: "ETH",
-          fullname: "Etherium",
+          coin: "BTC",
+          fullname: "Bitcoin",
           amont: 0.10003,
+          carteiraId: 1,
           walletAddress: 2,
           createdAt: new Date(),
           updatedAt: new Date()

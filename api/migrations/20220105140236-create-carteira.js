@@ -1,30 +1,15 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('wallets', {
-      address: {
+    await queryInterface.createTable('carteiras', {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
       name: {
-        allowNull: false,
         type: Sequelize.STRING
-      },
-      cpf: {
-        allowNull: false,
-        type: Sequelize.STRING,
-        unique: true
-      },
-      birthdate: {
-        allowNull: false,
-        type: Sequelize.DATEONLY
-      },
-      carteiraId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: 'carteiras', key: 'id' }
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +22,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('wallets');
+    await queryInterface.dropTable('carteiras');
   }
 };

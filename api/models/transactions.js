@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       transactions.belongsTo(models.coins)
       transactions.belongsTo(models.wallet)
+      transactions.belongsTo(models.carteira)
     }
   };
   transactions.init({

@@ -10,6 +10,7 @@ module.exports = {
           datetime: '2003-04-23',
           currentCotation: 0.0123,
           coinId: 1,
+          carteiraId: 1,
           walletAddress: 1,
           createdAt: new Date(),
           updatedAt: new Date()
@@ -19,6 +20,7 @@ module.exports = {
           datetime: '2003-04-23',
           currentCotation: 0.0123,
           coinId: 2,
+          carteiraId: 1,
           walletAddress: 2,
           createdAt: new Date(),
           updatedAt: new Date()
