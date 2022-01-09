@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.DATEONLY
       },
       carteiraId: {
-        allowNull: false,
+        defaultValue: 1,
         type: Sequelize.INTEGER,
         references: { model: 'carteiras', key: 'id' }
       },
@@ -36,6 +36,7 @@ module.exports = {
       }
     });
   },
+
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('wallets');
   }

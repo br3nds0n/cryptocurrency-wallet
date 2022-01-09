@@ -31,7 +31,7 @@ module.exports = {
         references: { model: 'wallets', key: 'address' }
       },
       carteiraId: {
-        allowNull: false,
+        defaultValue: 1,
         type: Sequelize.INTEGER,
         references: { model: 'carteiras', key: 'id' }
       },

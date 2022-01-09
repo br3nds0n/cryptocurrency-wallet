@@ -45,8 +45,13 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: {
             msg: "Campo 'cpf' não pode ser vazio"
+          },
+          validation: function (validar) {
+            if(validar.length <= 13)
+            throw new Error ("Campo 'cpf' deve ser valido")
           }
         }
+
       },
       birthdate: {
         allowNull: false,
@@ -56,13 +61,18 @@ module.exports = (sequelize, DataTypes) => {
             msg: "Campo 'birthdate' não pode ser vazio "
           },
           isDate: true,
-          isBefore: '2003-12-31'
+          validation: function (dado) {
+            const today = new Date()
+            const age = new Date(dado)
+            if (today.getFullYear() - age.getFullYear() < 18)
+              throw new Error("Usuário deve ser maior de idade '18 anos'")
+          }
         }
       }
     },
     {
       sequelize,
-      modelName: 'wallet'
+      modelName: 'wallet',
     }
   )
   return wallet

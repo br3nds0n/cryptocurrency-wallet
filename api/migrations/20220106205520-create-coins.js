@@ -18,12 +18,12 @@ module.exports = {
         type: Sequelize.FLOAT
       },
       walletAddress: {
-        allowNull: false,
+        defaultValue: 1,
         type: Sequelize.INTEGER,
         references: { model: 'wallets', key: 'address' }
       },
       carteiraId: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
         references: { model: 'carteiras', key: 'id' }
       },

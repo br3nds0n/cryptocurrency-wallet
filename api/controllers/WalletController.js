@@ -4,13 +4,11 @@ const database = require('../models')
 const coins = database.coins
 const transactions = database.transactions
 const wallet = database.wallet
-const carteira = database.carteiras
 const Sequelize = require('sequelize')
 const Op = Sequelize.Op
 
 class WalletController {
   //metodo para criar uma carteira
-
   static async createWallet(req, res) {
     const newWallet = req.body
     try {
@@ -23,11 +21,12 @@ class WalletController {
 
   //metodo para pegar todas as carteiras do banco
   static async getAllWallets(req, res) {
-    const { coin, name, cpf, birthdate, amount } = req.query
+    const { name, coin, cpf, birthdate, amount } = req.query
     const where = {}
+    const where2 = {}
 
-    name ? (where.name = {}) : null
-    name ? (where.name[Op.eq] = name) : null
+    name ? (where2.name = {}) : null
+    name ? (where2.name[Op.eq] = name) : null
 
     cpf ? (where.cpf = {}) : null
     cpf ? (where.cpf[Op.eq] = cpf) : null
@@ -39,6 +38,7 @@ class WalletController {
     coin ? (where.coin[Op.eq] = coin) : null
 
     try {
+      console.log(name)
       const allWallets = await database.carteira.findAll({
         include: {
           model: wallet,
@@ -70,28 +70,24 @@ class WalletController {
   static async getOneWallet(req, res) {
     const { address } = req.params
     try {
-      const oneWallet = await database.wallet.findOne({
-        where: { address: Number(address) },
-        include: [
-          {
+      const oneWallet = await database.carteira.findOne({
+        include: {
+          where: { address: Number(address) },
+          model: wallet,
+          required: true,
+          attributes: ['address', 'name', 'cpf', 'birthdate'],
+          include: {
             model: coins,
-            attributes: ['coin', 'fullname', 'amont'],
             required: true,
+            attributes: ['coin', 'fullname', 'amont'],
             include: {
               model: transactions,
               required: true,
               attributes: ['value', 'datetime', 'currentCotation']
             }
           }
-        ],
-        attributes: [
-          'address',
-          'name',
-          'cpf',
-          'birthdate',
-          'createdAt',
-          'updatedAt'
-        ]
+        },
+        attributes: []
       })
       res.status(200)
       res.json(oneWallet)
@@ -135,7 +131,25 @@ class WalletController {
     }
   }
 
- 
+  //metodo para gerar o histórico
+  static async getHistory(req, res) {
+    const { address } = req.params
+    try {
+      const oneHistory = await database.coins.findAll({
+        where: { walletAddress: Number(address) },
+        attributes: ['coin', 'fullname', 'amont'],
+        include: {
+          model: transactions,
+          required: true,
+          attributes: ['value', 'datetime', 'currentCotation']
+        }
+      })
+      res.status(200)
+      res.send(oneHistory)
+    } catch (error) {
+      res.status(404).json(error.message)
+    }
+  }
 }
 
 module.exports = WalletController
