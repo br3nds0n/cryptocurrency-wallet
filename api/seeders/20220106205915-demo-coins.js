@@ -8,8 +8,17 @@ module.exports = {
         {
           coin: "ETH",
           fullname: "Etherium",
-          amont: 0.10003,
+          amont: 1200.21,
           walletAddress: 1,
+          carteiraId: 1,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          coin: "ETH",
+          fullname: "Etherium",
+          amont: 1200.21,
+          walletAddress: 2,
           carteiraId: 1,
           createdAt: new Date(),
           updatedAt: new Date()
@@ -17,9 +26,18 @@ module.exports = {
         {
           coin: "BTC",
           fullname: "Bitcoin",
-          amont: 0.10003,
+          amont: 244.224,
           carteiraId: 1,
           walletAddress: 2,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          coin: "BTC",
+          fullname: "Bitcoin",
+          amont: 244.224,
+          carteiraId: 1,
+          walletAddress: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         }
