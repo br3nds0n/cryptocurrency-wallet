@@ -259,7 +259,7 @@ $ show tables;
 </p><br>
 
 ### REQUEST - (GET) 
-> Retornar histórico de movimentação de uma carteira `http://localhost:3000/api/v1/wallet/:address/transaction`<br>
+> Retornar histórico de movimentação de uma carteira.<br> Use: GET - `http://localhost:3000/api/v1/wallet/:address/transaction`<br>
 > Retorno:
 <p align="center">
 <img width="900" src ="https://user-images.githubusercontent.com/82064724/148706709-dbbe8622-7abb-4700-91d6-430a3e1f50b8.gif">
