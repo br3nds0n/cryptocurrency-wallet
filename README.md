@@ -28,8 +28,8 @@ No segundo desafio do programa de bolsas, será a criação de uma carteira de c
  * Interação de métodos http. (Criar, buscar, editar e remover);
  * Relacionamento de tabelas e transações;
  * validação dos campos;
+ * consumir api de moedas;
  
-
 ---
 
 ## 💻 Baixar e executar o projeto
@@ -133,26 +133,138 @@ $ show tables;
 
 ---
 
-### 📝 Testes (api)
-
->
-
+### 📝 Testes de Moedas(api)
+> Chegamos a fase de testes, no postman vamos acessar as moedas da api, `GET` http://localhost:3000/api/v1/json/all.<br><br>Retorno:
 
 ```json 
+{
+    "USD": {
+        "code": "USD",
+        "codein": "BRL",
+        "name": "Dólar Americano/Real Brasileiro",
+        "high": "5.7099",
+        "low": "5.6191",
+        "varBid": "-0.0474",
+        "pctChange": "-0.83",
+        "bid": "5.6355",
+        "ask": "5.6365",
+        "timestamp": "1641591013",
+        "create_date": "2022-01-07 18:30:13"
+    },
+    "USDT": {
+        "code": "USD",
+        "codein": "BRLT",
+        "name": "Dólar Americano/Real Brasileiro Turismo",
+        "high": "5.83",
+        "low": "5.76",
+        "varBid": "-0.06",
+        "pctChange": "-1.03",
+        "bid": "5.6",
+        "ask": "5.94",
+        "timestamp": "1641584100",
+        "create_date": "2022-01-07 16:35:00"
+    },
+    "BTC": {
+        "code": "BTC",
+        "codein": "BRL",
+        "name": "Bitcoin/Real Brasileiro",
+        "high": "244.224",
+        "low": "236.001",
+        "varBid": "4213",
+        "pctChange": "1.77",
+        "bid": "242.359",
+        "ask": "242.359",
+        "timestamp": "1641764146",
+        "create_date": "2022-01-09 18:35:46"
+    },
+    "EUR": {
+        "code": "EUR",
+        "codein": "BRL",
+        "name": "Euro/Real Brasileiro",
+        "high": "6.4549",
+        "low": "6.3831",
+        "varBid": "-0.0046",
+        "pctChange": "-0.07",
+        "bid": "6.3949",
+        "ask": "6.3987",
+        "timestamp": "1641762907",
+        "create_date": "2022-01-09 18:15:07"
+    },
+    "ETH": {
+        "code": "ETH",
+        "codein": "BRL",
+        "name": "Ethereum/Real Brasileiro",
+        "high": "1200.21",
+        "low": "1200.21",
+        "varBid": "0",
+        "pctChange": "0",
+        "bid": "1440.25",
+        "ask": "16999.75",
+        "timestamp": "1610415652",
+        "create_date": "2021-01-11 22:40:52"
+    }
+}
 
 ```
 <br>
  
->
+### 📝 Teste de rotas (api)
 
-```json 
-
-```
-### ⚙ Resultado (api)
+### REQUEST - (GET)
+> Rota para pegar todas as carteiras cadastradas.<br> Use: GET - `http://localhost:3000/api/v1/wallet`
 
 <p align="center">
-<img width="900" src ="">
-</p>
+<img width="900" src ="https://user-images.githubusercontent.com/82064724/148702966-736efa90-0f56-47fe-a09a-69b52b47af75.gif">
+</p><br>
+
+### REQUEST - (POST)
+
+> Rota para criar uma carteiras.<br> Use: POST - `http://localhost:3000/api/v1/wallet`
+> Passe os parametros a serem enviados:
+```json
+{
+     "name": "Brendson Victor",
+     "cpf": "123.456.789-13",
+     "birthdate": "2003-04-23"
+}
+```
+
+>Retorno:
+<p align="center">
+<img width="900" src ="https://user-images.githubusercontent.com/82064724/148703624-3d4f5ee1-b592-4280-97da-db8f5db91fc5.gif">
+</p><br>
+
+
+### REQUEST - (PUT)
+
+> Rota para atualizar uma carteiras.<br> Use: PUT - `http://localhost:3000/api/v1/wallet/:address`
+> No exemplo de rota a cima foi gerado um address 8, irei atualizar o capo name:
+```json
+{
+     "name": "Gabriel Victor",
+}
+```
+
+>Retorno:
+<p align="center">
+<img width="900" src ="https://user-images.githubusercontent.com/82064724/148703855-878fab27-c1e1-4d22-9537-9f014bbb74f3.gif">
+</p><br>
+
+### REQUEST - (DELETE)
+
+> Rota para atualizar uma carteiras.<br> Use: DELETE - `http://localhost:3000/api/v1/wallet/:address`<br> Nesse exemplo irei apagar o address 8:
+> Retorno:
+<p align="center">
+<img width="900" src ="https://user-images.githubusercontent.com/82064724/148704645-11046512-64f7-45d7-9f59-ebc15676e130.gif">
+</p><br>
+
+### REQUEST - (GET) 
+> Retornar histórico de movimentação de uma carteira `http://localhost:3000/api/v1/wallet/:address/transaction`<br>
+> Retorno:
+<p align="center">
+<img width="900" src ="https://user-images.githubusercontent.com/82064724/148706709-dbbe8622-7abb-4700-91d6-430a3e1f50b8.gif">
+</p><br>
+
 
 ## 🛠 Tecnologias
 
@@ -226,9 +338,7 @@ As seguintes ferramentas/tecnologias foram usadas na construção e testagem do 
 
 ## ✏ Autor
 
-Obrigado a todos citados a cima por me ajudarem nessa nova etapa de desafios, sou 
-grato a cada um de vocês por todo apoio e atenção dada, ao decorrer da sprint.
-É muito gratificante participar desse programa, e ter o apoido dessa equipe.<code>#dreambigger🚀🧡</code> <br>
+Obrigado a todos a cima que me ajudaram a entender o projeto, agradeço pela oportunidade. Garanto que essa api foi desenvolvida com todo meu máximo, me dediquei 100% ao projeto que infelizmente não foi concluido a tempo. Quero agradecer especiamente a Gabriel e Bruna por toda a atenção dada a mim no projeto.<br><br>Obrigado mais uma vez e vamos para o próxima!!<code>#dreambigger🚀🧡</code> <br>
 
 
 <div align=left>
